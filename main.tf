@@ -42,8 +42,7 @@ resource "helm_release" "kubecost" {
 
   depends_on = [
     "null_resource.wait-dependencies",
-    "null_resource.dependency_getter",
-    "null_resource.storageclass_azurefile"
+    "null_resource.dependency_getter"
   ]
 }
 
