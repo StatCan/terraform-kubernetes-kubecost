@@ -30,7 +30,7 @@ resource "null_resource" "wait-dependencies" {
 resource "helm_release" "kubecost" {
   version = "${var.chart_version}"
   name = "kubecost"
-  chart = "kubecost"
+  chart = "cost-analyzer"
   repository = "${var.helm_repository}"
   namespace = "${var.helm_namespace}"
 
