@@ -17,16 +17,6 @@ resource "null_resource" "dependency_getter" {
   }
 }
 
-resource "null_resource" "wait-dependencies" {
-  provisioner "local-exec" {
-    command = "helm ls --tiller-namespace ${var.helm_namespace}"
-  }
-
-  depends_on = [
-    "null_resource.dependency_getter",
-  ]
-}
-
 resource "helm_release" "kubecost" {
   version = "${var.chart_version}"
   name = "kubecost"
@@ -41,7 +31,6 @@ resource "helm_release" "kubecost" {
   ]
 
   depends_on = [
-    "null_resource.wait-dependencies",
     "null_resource.dependency_getter"
   ]
 }
