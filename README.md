@@ -86,6 +86,7 @@ EOF
 
 ## History
 
-| Date     | Release | Change          |
-|----------|---------|-----------------|
-| 20200710 | v1.0.0  | Initial release |
+| Date     | Release | Change                        |
+|----------|---------|-------------------------------|
+| 20200710 | v1.0.0  | Initial release               |
+| 20200710 | v1.0.1  | Removed extraneous variables  |
