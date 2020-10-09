@@ -18,7 +18,7 @@ The following security controls can be met through configuration of this templat
 
 ```terraform
 module "helm_kubecost" {
-  source = "git::https://github.com/canada-ca-terraform-modules/terraform-kubernetes-kubecost.git"
+  source = "https://gitlab.k8s.cloud.statcan.ca/cloudnative/terraform/modules/terraform-kubernetes-kubecost?ref=v2.0.0"
 
   chart_version = "0.0.1"
   dependencies = [
@@ -90,3 +90,5 @@ EOF
 |----------|---------|-------------------------------|
 | 20200710 | v1.0.0  | Initial release               |
 | 20200710 | v1.0.1  | Removed extraneous variables  |
+| 20201005 | v2.0.0  | Module modified for Helm 3    |
+
