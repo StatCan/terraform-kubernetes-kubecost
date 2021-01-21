@@ -1,5 +1,5 @@
 output "helm_namespace" {
-  value = "${var.helm_namespace}"
+  value = var.helm_namespace
 }
 
 # Part of a hack for module-to-module dependencies.
