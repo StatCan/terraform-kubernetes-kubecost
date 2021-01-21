@@ -22,7 +22,7 @@ module "helm_kubecost" {
 
   chart_version = "0.0.1"
   dependencies = [
-    "${module.namespace_kubecost.depended_on}",
+    module.namespace_kubecost.depended_on,
   ]
 
   helm_service_account = "tiller"
@@ -91,4 +91,5 @@ EOF
 | 20200710 | v1.0.0  | Initial release               |
 | 20200710 | v1.0.1  | Removed extraneous variables  |
 | 20201005 | v2.0.0  | Module modified for Helm 3    |
+| 20210113 | v2.0.1  | Remove interpolation syntax   |
 
