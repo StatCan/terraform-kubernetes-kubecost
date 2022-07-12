@@ -1,9 +1,11 @@
 resource "helm_release" "kubecost" {
-  version    = var.chart_version
-  name       = "kubecost"
-  chart      = "cost-analyzer"
-  repository = var.helm_repository
-  namespace  = var.helm_namespace
+  name                = "kubecost"
+  repository          = var.helm_repository
+  repository_username = var.helm_repository_username
+  repository_password = var.helm_repository_password
+  chart               = "cost-analyzer"
+  version             = var.chart_version
+  namespace           = var.helm_namespace
 
   timeout = 2400
 
