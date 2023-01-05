@@ -67,20 +67,22 @@ EOF
 
 ## Variables Values
 
-| Name                     | Type   | Required | Value                                           |
-| ------------------------ | ------ | -------- | ----------------------------------------------- |
-| chart_version            | string | yes      | Version of the Helm Chart                       |
-| helm_namespace           | string | yes      | The namespace Helm will install the chart under |
-| helm_repository          | string | yes      | The repository where the Helm chart is stored   |
-| values                   | list   | no       | Values to be passed to the Helm Chart           |
+| Name                     | Type   | Required | Value                                              |
+| ------------------------ | ------ | -------- | ---------------------------------------------------|
+| chart_version            | string | yes      | Version of the Helm Chart                          |
+| helm_namespace           | string | yes      | The namespace Helm will install the chart under    |
+| helm_repository          | string | yes      | The repository where the Helm chart is stored      |
+| values                   | list   | no       | Values to be passed to the Helm Chart              |
+| enable_prometheusrules   | string | no       | Adds PrometheusRules for kubecost-alerts           |
 
 ## History
 
-| Date     | Release | Change                            |
-| -------- | ------- | --------------------------------- |
-| 20200710 | v1.0.0  | Initial release                   |
-| 20200710 | v1.0.1  | Removed extraneous variables      |
-| 20201005 | v2.0.0  | Module modified for Helm 3        |
-| 20210113 | v2.0.1  | Remove interpolation syntax       |
-| 20210824 | v3.0.0  | Update module for Terraform v0.13 |
-
+| Date     | Release | Change                                                        |
+| -------- | ------- | --------------------------------------------------------------|
+| 20200710 | v1.0.0  | Initial release                                               |
+| 20200710 | v1.0.1  | Removed extraneous variables                                  |
+| 20201005 | v2.0.0  | Module modified for Helm 3                                    |
+| 20210113 | v2.0.1  | Remove interpolation syntax                                   |
+| 20210824 | v3.0.0  | Update module for Terraform v0.13                             |
+| 20220712 | v3.1.0  | Added ability to pass helm credentials                        |
+| 20230105 | v3.2.0  | Add kubecost rules from the cost-analyzer Helm chart          |

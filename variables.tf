@@ -27,3 +27,9 @@ variable "values" {
   default = ""
   type    = string
 }
+
+variable "enable_prometheusrules" {
+  type        = bool
+  default     = true
+  description = "Adds PrometheusRules for kubecost alerts"
+}
