@@ -18,7 +18,7 @@ The following security controls can be met through configuration of this templat
 
 ```terraform
 module "helm_kubecost" {
-  source = "https://github.com/canada-ca-terraform-modules/terraform-kubernetes-kubecost?ref=v3.0.0"
+  source = "https://github.com/canada-ca-terraform-modules/terraform-kubernetes-kubecost?ref=v3.2.1"
 
   chart_version = "0.0.1"
   depends_on = [
@@ -86,3 +86,4 @@ EOF
 | 20210824 | v3.0.0  | Update module for Terraform v0.13                             |
 | 20220712 | v3.1.0  | Added ability to pass helm credentials                        |
 | 20230105 | v3.2.0  | Add kubecost rules from the cost-analyzer Helm chart          |
+| 20230202 | v3.2.1  | Specify sensitive variables                                   |
