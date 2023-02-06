@@ -1,18 +1,29 @@
 variable "helm_namespace" {
-  default = "kubecost-system"
+  type        = string
+  nullable    = false
+  default     = "kubecost-system"
+  description = "the namespace which should contain resource created by this helm release"
 }
 
 variable "helm_repository" {
-  default = "https://kubecost.github.io/cost-analyzer/"
+  default     = "https://kubecost.github.io/cost-analyzer/"
+  description = "The repository where the Helm chart is stored"
 }
 
 variable "helm_repository_username" {
-  default = ""
-  type    = string
+  default     = ""
+  type        = string
+  nullable    = false
+  description = "The username of the repository where the Helm chart is stored"
+  sensitive   = true
 }
 
 variable "helm_repository_password" {
-  default = ""
+  default     = ""
+  type        = string
+  nullable    = false
+  description = "The password of the repository where the Helm chart is stored"
+  sensitive   = true
 }
 
 variable "chart_version" {
@@ -24,8 +35,9 @@ variable "chart_name" {
 }
 
 variable "values" {
-  default = ""
-  type    = string
+  default     = ""
+  type        = string
+  description = "Values that represent the configuration for kubecost, based on the upstream helm chart"
 }
 
 variable "enable_prometheusrules" {
