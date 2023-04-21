@@ -65,15 +65,43 @@ EOF
 }
 ```
 
-## Variables Values
+<!-- BEGIN_TF_DOCS -->
+## Requirements
 
-| Name                     | Type   | Required | Value                                              |
-| ------------------------ | ------ | -------- | ---------------------------------------------------|
-| chart_version            | string | yes      | Version of the Helm Chart                          |
-| helm_namespace           | string | yes      | The namespace Helm will install the chart under    |
-| helm_repository          | string | yes      | The repository where the Helm chart is stored      |
-| values                   | list   | no       | Values to be passed to the Helm Chart              |
-| enable_prometheusrules   | string | no       | Adds PrometheusRules for kubecost-alerts           |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 1.3.2 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.10.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_helm"></a> [helm](#provider\_helm) | >= 1.3.2 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | >= 1.10.0 |
+
+
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_chart_name"></a> [chart\_name](#input\_chart\_name) | n/a | `string` | `"kubecost"` | no |
+| <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | n/a | `string` | `"1.92.0"` | no |
+| <a name="input_enable_prometheusrules"></a> [enable\_prometheusrules](#input\_enable\_prometheusrules) | Adds PrometheusRules for kubecost alerts | `bool` | `true` | no |
+| <a name="input_helm_namespace"></a> [helm\_namespace](#input\_helm\_namespace) | the namespace which should contain resource created by this helm release | `string` | `"kubecost-system"` | no |
+| <a name="input_helm_repository"></a> [helm\_repository](#input\_helm\_repository) | The repository where the Helm chart is stored | `string` | `"https://kubecost.github.io/cost-analyzer/"` | no |
+| <a name="input_helm_repository_password"></a> [helm\_repository\_password](#input\_helm\_repository\_password) | The password of the repository where the Helm chart is stored | `string` | `""` | no |
+| <a name="input_helm_repository_username"></a> [helm\_repository\_username](#input\_helm\_repository\_username) | The username of the repository where the Helm chart is stored | `string` | `""` | no |
+| <a name="input_values"></a> [values](#input\_values) | Values that represent the configuration for kubecost, based on the upstream helm chart | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_helm_namespace"></a> [helm\_namespace](#output\_helm\_namespace) | n/a |
+<!-- END_TF_DOCS -->
 
 ## History
 
@@ -87,3 +115,4 @@ EOF
 | 20220712 | v3.1.0  | Added ability to pass helm credentials                        |
 | 20230105 | v3.2.0  | Add kubecost rules from the cost-analyzer Helm chart          |
 | 20230202 | v3.2.1  | Specify sensitive variables                                   |
+| 20230412 | v3.2.2  | Add `evaluated-by: prometheus` label to alerts so they are picked up by Prometheus. |
