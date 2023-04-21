@@ -2,7 +2,7 @@ locals {
   common_labels = {
     "app.kubernetes.io/managed-by" = "terraform"
     "app.kubernetes.io/part-of"    = "kubecost"
-    "app.kubernetes.io/version"    = "v3.2.0"
+    "app.kubernetes.io/version"    = "v3.2.2"
   }
 }
 
@@ -14,7 +14,7 @@ resource "kubernetes_manifest" "prometheusrule_kubecost_alerts" {
     "metadata" = {
       "name"      = "kubecost-alerts"
       "namespace" = var.helm_namespace
-      "labels"    = merge(local.common_labels, { "app.kubernetes.io/name" = "kubecost-alerts" })
+      "labels"    = merge(local.common_labels, { "app.kubernetes.io/name" = "kubecost-alerts" }, { "evaluated-by" = "prometheus" })
       "annotations" = {
         "rules-definition" = "https://gitlab.k8s.cloud.statcan.ca/cloudnative/terraform/modules/terraform-kubernetes-kubecost/-/tree/master/prometheus_rules/kubecost_rules.yaml"
       }
