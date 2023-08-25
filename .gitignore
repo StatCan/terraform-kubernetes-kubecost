@@ -4,3 +4,5 @@ plan
 .terraform/plugins
 *.tfstate
 *.tfstate.backup
+*.tfvars
+.terraform.lock.hcl

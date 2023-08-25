@@ -1,3 +1,3 @@
-output "helm_namespace" {
-  value = var.helm_namespace
+output "namespace" {
+  value = helm_release.kubecost.namespace
 }
