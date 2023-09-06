@@ -17,7 +17,7 @@ variable "helm_repository" {
 }
 
 variable "chart_version" {
-  default = "1.105.1"
+  default = "1.106.0"
 }
 
 variable "grafana" {
@@ -37,11 +37,12 @@ variable "image_pull_secret_names" {
 
 variable "ingress" {
   type = object({
-    enabled = optional(bool, true)
-    hosts   = optional(list(string), [])
+    enabled     = optional(bool, true)
+    hosts       = optional(list(string), [])
+    annotations = optional(map(string), {})
   })
 
-  description = "Configurations related the Ingress manifest."
+  description = "Configurations related to the Ingress."
 }
 
 variable "notifications" {

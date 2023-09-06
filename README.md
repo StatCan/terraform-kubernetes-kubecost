@@ -72,3 +72,4 @@ Refer to [examples](./examples).
 | 2023-02-02 | v3.2.1  | Specify sensitive variables                                                         |
 | 2023-04-12 | v3.2.2  | Add `evaluated-by: prometheus` label to alerts so they are picked up by Prometheus. |
 | 2023-08-17 | v4.0.0  | Refactor to provide a more opinionated interface for the features used.             |
+| 2023-09-06 | v4.1.0  | Update to 1.106.0 and allow for the configuration of ingress annotations.           |
