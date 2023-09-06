@@ -63,7 +63,7 @@ remoteWrite:
 networkCosts:
   image: "${var.hubs.gcr}kubecost1/kubecost-network-costs:v0.16.7"
 clusterController:
-  image: "${var.hubs.gcr}kubecost1/cluster-controller:v0.11.0"
+  image: "${var.hubs.gcr}kubecost1/cluster-controller:v0.12.0"
 %{endif~}
 %{if var.hubs.dockerhub != ""~}
 initChownDataImage: "${var.hubs.dockerhub}busybox"
@@ -71,6 +71,7 @@ initChownDataImage: "${var.hubs.dockerhub}busybox"
 
 ingress:
   enabled: ${var.ingress.enabled}
+  annotation: ${jsonencode(var.ingress.annotations)}
   hosts: ${jsonencode(var.ingress.hosts)}
   paths:
   - /
