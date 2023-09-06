@@ -71,7 +71,7 @@ initChownDataImage: "${var.hubs.dockerhub}busybox"
 
 ingress:
   enabled: ${var.ingress.enabled}
-  annotation: ${jsonencode(var.ingress.annotations)}
+  annotations: ${jsonencode(var.ingress.annotations)}
   hosts: ${jsonencode(var.ingress.hosts)}
   paths:
   - /
